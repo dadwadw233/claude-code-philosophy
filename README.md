@@ -67,6 +67,12 @@ Inside Claude Code, run:
 /plugin install claude-code-philosophy@claude-code-philosophy
 ```
 
+Then invoke the installed skill with:
+
+```text
+/claude-code-philosophy:agent-design-coach
+```
+
 ### Manual install
 
 - Codex: copy this repo to `~/.codex/plugins/claude-code-philosophy` and register it in `~/.agents/plugins/marketplace.json`
@@ -144,6 +150,12 @@ Install the plugin:
 /plugin install claude-code-philosophy@claude-code-philosophy
 ```
 
+After installation, the explicit slash command is:
+
+```text
+/claude-code-philosophy:agent-design-coach
+```
+
 ### Claude Code: manual skill install
 
 Copy the skill directory:
@@ -153,15 +165,28 @@ mkdir -p ~/.claude/skills
 cp -R skills/agent-design-coach ~/.claude/skills/agent-design-coach
 ```
 
+For a manually installed standalone skill, invoke:
+
+```text
+/agent-design-coach
+```
+
 ## How to use it
 
-Example prompts:
+### Codex
 
 - `Use $agent-design-coach to turn this coding-agent idea into a real system architecture.`
 - `Use $agent-design-coach to review this repo's agent design for harness, memory, permissions, and UX gaps.`
-- `Use $agent-design-coach to redesign this vibe-coded AI product into something more controllable and useful.`
-- `Use $agent-design-coach to decide whether this workflow needs a true agent or just a simpler tool.`
-- `Use $agent-design-coach to critique this multi-agent plan and simplify it if needed.`
+
+### Claude Code plugin install
+
+- `/claude-code-philosophy:agent-design-coach`
+- `/claude-code-philosophy:agent-design-coach Review this coding agent and tell me what is weak in its harness design.`
+
+### Claude Code standalone skill install
+
+- `/agent-design-coach`
+- `/agent-design-coach Turn this vibe-coded AI product into a disciplined agent design.`
 
 ## What a good output should look like
 
@@ -181,7 +206,8 @@ When the skill is working well, it should produce guidance that includes:
 ```text
 .
 ├── .claude-plugin/
-│   └── marketplace.json
+│   ├── marketplace.json
+│   └── plugin.json
 ├── .codex-plugin/
 │   └── plugin.json
 ├── .agents/plugins/

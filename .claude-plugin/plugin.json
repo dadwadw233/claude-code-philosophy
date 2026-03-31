@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-philosophy",
+  "description": "A vendor-neutral agent design skill inspired by Claude Code-class systems.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Yuanhong Yu",
+    "email": "dadwadw233@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/dadwadw233/claude-code-philosophy",
+  "repository": "https://github.com/dadwadw233/claude-code-philosophy",
+  "license": "MIT"
+}

@@ -228,9 +228,3 @@ This project is not trying to:
 - encourage maximal autonomy by default
 
 It is trying to help developers make better design decisions.
-
-## License
-
-This repository is released under the MIT License.
-
-The installable skill also includes its own `LICENSE.txt` so it remains clearly licensed when copied on its own.

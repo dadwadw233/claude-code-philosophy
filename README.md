@@ -1,43 +1,54 @@
 # Claude Code Philosophy
 
-`claude-code-philosophy` is a public skill and plugin package for people who want to build better agents.
+Design better agents.
 
-It is inspired by what makes Claude Code-class systems feel strong in practice: coherent harnesses, clear tool contracts, memory discipline, explicit permissions, recoverability, and product legibility.
+`claude-code-philosophy` is a public skill and plugin package for developers who want to build agentic systems that are actually useful: controllable, legible, recoverable, and grounded in real product constraints.
 
-This is **not** an official Anthropic project and it is **not** a clone of Claude Code. It is an opinionated, vendor-neutral attempt to distill the design philosophy behind useful agentic systems into a reusable skill.
+It is inspired by the design philosophy behind Claude Code-class agent systems, but written as **vendor-neutral guidance** that can help builders working with Codex, Claude Code, or their own custom agent runtimes.
 
-## What this project gives you
+This project is unofficial. It is not affiliated with Anthropic.
 
-The core deliverable is one skill:
+## Why this exists
+
+A lot of agent projects are still too shallow:
+
+- great demo, weak product
+- many tools, no capability model
+- “memory” with no boundaries
+- autonomy with no control surface
+- impressive output, fragile runtime
+
+This project exists to push in the other direction.
+
+The core belief is simple: the difference between a toy agent and a useful one is usually **the harness**, not just the model or the prompt.
+
+## What you get
+
+This repository currently ships one installable skill:
 
 - `agent-design-coach`
 
-That skill helps you:
+It helps developers:
 
-- turn vague agent ideas into concrete system designs
-- review an existing agent for harness, tool, memory, UX, and safety gaps
-- push back on overbuilt or under-specified agent architectures
-- design agents as products rather than prompt demos
+- turn fuzzy agent ideas into concrete system designs
+- review an existing agent for harness, tool, memory, safety, and UX gaps
+- decide whether a workflow needs a real agent or a simpler tool
+- make vibe-coded AI projects more disciplined and useful
 
-## Philosophy
+## What the skill teaches
 
-This project is built around a few hard beliefs:
+The skill is built around a few strong principles:
 
-- the harness matters more than the prompt
-- tools are governed capabilities, not raw power
-- memory should be layered and intentional
-- recovery is a first-class feature
-- human control is part of the product
-- useful systems beat flashy autonomy
+- harness-first design
+- explicit tool and permission boundaries
+- layered memory instead of one giant blob
+- recovery and durability as first-class features
+- human control as part of the product
+- practical usefulness over fake autonomy
 
-If you want more detail, start with:
+## Quick install
 
-- `skills/agent-design-coach/SKILL.md`
-- `skills/agent-design-coach/references/design-principles.md`
-
-## Install in Codex
-
-### Fastest path: install the raw skill
+### Codex: install the skill directly
 
 Inside Codex, run:
 
@@ -47,15 +58,43 @@ $skill-installer install https://github.com/dadwadw233/claude-code-philosophy/tr
 
 Then restart Codex.
 
-### Plugin path: install locally for development or power use
+### Claude Code: install through the repository marketplace
 
-Clone this repo somewhere on your machine:
+Inside Claude Code, run:
+
+```text
+/plugin marketplace add dadwadw233/claude-code-philosophy
+/plugin install claude-code-philosophy@claude-code-philosophy
+```
+
+### Manual install
+
+- Codex: copy this repo to `~/.codex/plugins/claude-code-philosophy` and register it in `~/.agents/plugins/marketplace.json`
+- Claude Code: copy `skills/agent-design-coach` to `~/.claude/skills/agent-design-coach`
+
+Detailed examples are below.
+
+## Installation details
+
+### Codex: direct skill install
+
+This is the simplest path if you only want the skill itself.
+
+```text
+$skill-installer install https://github.com/dadwadw233/claude-code-philosophy/tree/main/skills/agent-design-coach
+```
+
+After installation, restart Codex.
+
+### Codex: local plugin install
+
+Clone the repo:
 
 ```bash
 git clone git@github.com:dadwadw233/claude-code-philosophy.git
 ```
 
-Copy the repo into your local Codex plugin area:
+Copy it into your local plugin area:
 
 ```bash
 mkdir -p ~/.codex/plugins
@@ -89,27 +128,30 @@ Create or update `~/.agents/plugins/marketplace.json`:
 
 Restart Codex. The plugin should appear in the plugin directory.
 
-## Install in Claude Code
-
-### Marketplace path
+### Claude Code: marketplace install
 
 This repository includes a Claude Code marketplace manifest at `.claude-plugin/marketplace.json`.
 
-Add the repository as a marketplace:
+Register the marketplace:
 
 ```text
 /plugin marketplace add dadwadw233/claude-code-philosophy
 ```
 
-Then install the plugin:
+Install the plugin:
 
 ```text
 /plugin install claude-code-philosophy@claude-code-philosophy
 ```
 
-### Manual skill path
+### Claude Code: manual skill install
 
-If you prefer a manual install, copy `skills/agent-design-coach` into your Claude skills directory as `~/.claude/skills/agent-design-coach`.
+Copy the skill directory:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R skills/agent-design-coach ~/.claude/skills/agent-design-coach
+```
 
 ## How to use it
 
@@ -119,8 +161,22 @@ Example prompts:
 - `Use $agent-design-coach to review this repo's agent design for harness, memory, permissions, and UX gaps.`
 - `Use $agent-design-coach to redesign this vibe-coded AI product into something more controllable and useful.`
 - `Use $agent-design-coach to decide whether this workflow needs a true agent or just a simpler tool.`
+- `Use $agent-design-coach to critique this multi-agent plan and simplify it if needed.`
 
-## Repository layout
+## What a good output should look like
+
+When the skill is working well, it should produce guidance that includes:
+
+- user value and task framing
+- recommended system shape
+- harness and execution loop
+- tool and permission boundaries
+- memory and context strategy
+- human control and UX surfaces
+- failure modes and evaluation criteria
+- immediate implementation next steps
+
+## Repository structure
 
 ```text
 .
@@ -128,9 +184,12 @@ Example prompts:
 │   └── marketplace.json
 ├── .codex-plugin/
 │   └── plugin.json
+├── .agents/plugins/
+│   └── marketplace.json
 └── skills/
     └── agent-design-coach/
         ├── SKILL.md
+        ├── LICENSE.txt
         ├── agents/
         │   └── openai.yaml
         └── references/
@@ -141,25 +200,37 @@ Example prompts:
 
 ## Design notes
 
-The skill is intentionally split into layers:
+The repository is intentionally layered:
 
-- `SKILL.md` stays concise and procedural
-- `references/` holds the deeper philosophy and review framework
-- product-specific metadata lives in `agents/openai.yaml`
+- `SKILL.md` stays procedural and activation-focused
+- `references/` contains the heavier philosophy and review material
+- `.codex-plugin/` packages the project for Codex
+- `.claude-plugin/` packages the project for Claude Code
 
-That keeps the invocation surface lean while preserving richer material when it is actually needed.
+This keeps the skill lean while still preserving enough depth to be genuinely useful.
 
 ## Inspiration
 
-This project is heavily inspired by:
+This project draws from:
 
-- Claude Code as an agent runtime and product
-- official OpenAI/Codex skills and plugin design conventions
-- the emerging Agent Skills ecosystem
+- Claude Code as an example of a strong agent runtime and product
+- official OpenAI/Codex skill and plugin conventions
+- Anthropic's public skills and skills marketplace patterns
+- the broader Agent Skills ecosystem
 
-But the wording and guidance here are aimed at broad agent builders, not only one vendor’s stack.
+## Non-goals
+
+This project is not trying to:
+
+- replicate Claude Code
+- provide a universal agent framework
+- replace actual engineering judgment
+- encourage maximal autonomy by default
+
+It is trying to help developers make better design decisions.
 
 ## License
 
-MIT
+This repository is released under the MIT License.
 
+The installable skill also includes its own `LICENSE.txt` so it remains clearly licensed when copied on its own.

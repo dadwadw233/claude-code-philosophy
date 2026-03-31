@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A reusable agent design skill inspired by Claude Code-class agent systems.",
   "author": {
-    "name": "dadwadw233",
+    "name": "Yuanhong Yu",
     "email": "dadwadw233@users.noreply.github.com",
     "url": "https://github.com/dadwadw233"
   },
@@ -23,7 +23,7 @@
     "displayName": "Claude Code Philosophy",
     "shortDescription": "Design better agents with stronger harness thinking",
     "longDescription": "A plugin that teaches practical, vendor-neutral design patterns for useful, controllable, extensible agentic products and coding agents.",
-    "developerName": "dadwadw233",
+    "developerName": "Yuanhong Yu",
     "category": "Productivity",
     "capabilities": [
       "Read",
@@ -40,4 +40,3 @@
     "brandColor": "#0F766E"
   }
 }
-

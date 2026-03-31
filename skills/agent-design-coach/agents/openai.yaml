@@ -1,0 +1,8 @@
+interface:
+  display_name: "Agent Design Coach"
+  short_description: "Design useful, controllable, extensible agent systems"
+  default_prompt: "Use $agent-design-coach to turn this agent idea into a real harness, tool, memory, permission, and UX design."
+
+policy:
+  allow_implicit_invocation: true
+

@@ -1,0 +1,43 @@
+{
+  "name": "claude-code-philosophy",
+  "version": "0.1.0",
+  "description": "A reusable agent design skill inspired by Claude Code-class agent systems.",
+  "author": {
+    "name": "dadwadw233",
+    "email": "dadwadw233@users.noreply.github.com",
+    "url": "https://github.com/dadwadw233"
+  },
+  "homepage": "https://github.com/dadwadw233/claude-code-philosophy",
+  "repository": "https://github.com/dadwadw233/claude-code-philosophy",
+  "license": "MIT",
+  "keywords": [
+    "agent",
+    "skills",
+    "codex",
+    "claude-code",
+    "harness",
+    "design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Claude Code Philosophy",
+    "shortDescription": "Design better agents with stronger harness thinking",
+    "longDescription": "A plugin that teaches practical, vendor-neutral design patterns for useful, controllable, extensible agentic products and coding agents.",
+    "developerName": "dadwadw233",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/dadwadw233/claude-code-philosophy",
+    "privacyPolicyURL": "https://github.com/dadwadw233/claude-code-philosophy",
+    "termsOfServiceURL": "https://github.com/dadwadw233/claude-code-philosophy/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Use Agent Design Coach to turn this vague agent idea into a real system design.",
+      "Use Agent Design Coach to review this coding agent architecture for harness, tools, memory, and UX gaps.",
+      "Use Agent Design Coach to design a safer and more useful agent product."
+    ],
+    "brandColor": "#0F766E"
+  }
+}
+

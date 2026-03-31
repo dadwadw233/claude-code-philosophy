@@ -1,0 +1,23 @@
+{
+  "name": "claude-code-philosophy",
+  "owner": {
+    "name": "dadwadw233",
+    "email": "dadwadw233@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "A public skill collection centered on agent design philosophy inspired by Claude Code.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-philosophy",
+      "description": "A single-skill package for designing useful, controllable, extensible agentic systems.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/agent-design-coach"
+      ]
+    }
+  ]
+}
+

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 dadwadw233
+Copyright (c) 2026 Yuanhong Yu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this skill and associated documentation files, to deal in the skill

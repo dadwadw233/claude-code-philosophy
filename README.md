@@ -1,5 +1,7 @@
 # Claude Code Philosophy
 
+[![Featured in awesome-agent-skills](https://img.shields.io/badge/featured%20in-awesome--agent--skills-2563eb?style=flat-square)](https://github.com/heilcheng/awesome-agent-skills)
+
 Design better agents.
 
 `claude-code-philosophy` is a public skill and plugin package for developers who want to build agentic systems that are actually useful: controllable, legible, recoverable, and grounded in real product constraints.
